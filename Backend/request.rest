@@ -9,7 +9,7 @@ Content-Type: application/json
 
 {
   "username": "yayan",
-  "password": "123456",
+  "status": "Done",
   "email": "yayan@gmail.com",
   "note": "This is a note",
   "deadline": "2025-03-12"
@@ -20,8 +20,8 @@ PATCH http://localhost:5000/users/1
 Content-Type: application/json
 
 {
-  "deadline": "2025-03-10"
+  "deadline": "2025-03-14"
   }
 
 ###
-DELETE http://localhost:5000/users/3
+DELETE http://localhost:5000/users/1
