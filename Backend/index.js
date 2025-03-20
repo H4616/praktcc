@@ -7,5 +7,9 @@ app.use(cors())
 app.use(express.json())
 app.use(UserRoute);
 
+app.get("/", (req, res) => {
+    res.send("Backend Berjalan Lancar");
+  });
+  
 
 app.listen(5000, ()=> console.log('Server up and running...'));
