@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from "../utils.js";
 
 const NoteCardList = ({ id }) => {
 	const [users, setUsers] = useState([]);
@@ -10,7 +11,7 @@ const NoteCardList = ({ id }) => {
 	}, []);
 
 	const getUsers = async () => {
-		const response = await axios.get("http://localhost:5000/users");
+		const response = await axios.get(`${BASE_URL}/users`);
 		setUsers(response.data);
 	};
 	const navigate = useNavigate();
@@ -23,7 +24,7 @@ const NoteCardList = ({ id }) => {
 	// Fungsi untuk menandai sebagai Done
 	const markAsDone = async (id) => {
 		try {
-			await axios.patch(`http://localhost:5000/users/${id}`, { status: "Done" });
+			await axios.patch(`${BASE_URL}/users/${id}`, { status: "Done" });
 			window.location.reload(); // Refresh halaman setelah perubahan
 		} catch (error) {
 			console.error("Error updating status:", error);
@@ -33,7 +34,7 @@ const NoteCardList = ({ id }) => {
 	// Fungsi untuk menghapus data
 	const deleteNote = async (id) => {
 		try {
-			await axios.delete(`http://localhost:5000/users/${id}`);
+			await axios.delete(`${BASE_URL}/users/${id}`);
 			window.location.reload(); // Refresh halaman setelah menghapus
 		} catch (error) {
 			console.error("Error deleting note:", error);

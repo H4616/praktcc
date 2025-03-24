@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from "../utils.js";
 
 const AddNote = () => {
     const [username, setUsername] = useState("");
@@ -13,7 +14,7 @@ const AddNote = () => {
     const addNote = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/users", {
+            await axios.post(`${BASE_URL}/users`, {
                 username,
                 status,
                 email,
