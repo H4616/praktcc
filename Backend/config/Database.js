@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 
-const db = new Sequelize('note_db', 'root', '', {
-    host: '104.198.252.178',
+const db = new Sequelize('note_db', 'noteuser', 'yourpassword', {
+    host: '35.184.119.225',
     dialect: 'mysql',
     port: 3306,
 });
